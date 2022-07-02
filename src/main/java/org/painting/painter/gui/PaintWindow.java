@@ -7,8 +7,10 @@ import org.painting.painter.gui.paint.panel.PaintPanel;
 import org.painting.painter.gui.paint.settings.PaintSettingsPanel;
 import org.painting.painter.xml.reader.dom.DOMPictureReader;
 import org.painting.painter.xml.reader.sax.SAXPictureReader;
+import org.painting.painter.xml.reader.stax.StAXPictureReader;
 import org.painting.painter.xml.saver.dom.DOMPictureSaver;
 import org.painting.painter.xml.saver.sax.SAXPictureSaver;
+import org.painting.painter.xml.saver.stax.StAXPictureSaver;
 
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -77,7 +79,7 @@ public class PaintWindow extends JFrame {
         domSaveMenuItem.addActionListener(new SaveActionListener(new DOMPictureSaver()));
         //StAX
         JMenuItem staxMenuItem = new JMenuItem("StAX saver");
-
+        staxMenuItem.addActionListener(new SaveActionListener(new StAXPictureSaver()));
         //JAXB
         JMenuItem jaxbMenuItem = new JMenuItem("JAXB saver");
 
@@ -102,6 +104,7 @@ public class PaintWindow extends JFrame {
         openMenu.add(domMenuItem);
         //StAX
         JMenuItem staxMenuItem = new JMenuItem("StAX reader");
+        staxMenuItem.addActionListener(new OpenActionListener(new StAXPictureReader()));
         openMenu.add(staxMenuItem);
         //JAXB
         JMenuItem jaxbMenuItem = new JMenuItem("JAXB reader");

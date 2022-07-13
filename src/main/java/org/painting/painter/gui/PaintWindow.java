@@ -6,9 +6,11 @@ import org.painting.painter.gui.action.SaveActionListener;
 import org.painting.painter.gui.paint.panel.PaintPanel;
 import org.painting.painter.gui.paint.settings.PaintSettingsPanel;
 import org.painting.painter.xml.reader.dom.DOMPictureReader;
+import org.painting.painter.xml.reader.jaxb.JAXBPictureReader;
 import org.painting.painter.xml.reader.sax.SAXPictureReader;
 import org.painting.painter.xml.reader.stax.StAXPictureReader;
 import org.painting.painter.xml.saver.dom.DOMPictureSaver;
+import org.painting.painter.xml.saver.jaxb.JAXBPictureSaver;
 import org.painting.painter.xml.saver.sax.SAXPictureSaver;
 import org.painting.painter.xml.saver.stax.StAXPictureSaver;
 
@@ -82,6 +84,7 @@ public class PaintWindow extends JFrame {
         staxMenuItem.addActionListener(new SaveActionListener(new StAXPictureSaver()));
         //JAXB
         JMenuItem jaxbMenuItem = new JMenuItem("JAXB saver");
+        jaxbMenuItem.addActionListener(new SaveActionListener(new JAXBPictureSaver()));
 
 
         saveMenu.add(saxSaveMenuItem);
@@ -108,6 +111,7 @@ public class PaintWindow extends JFrame {
         openMenu.add(staxMenuItem);
         //JAXB
         JMenuItem jaxbMenuItem = new JMenuItem("JAXB reader");
+        jaxbMenuItem.addActionListener(new OpenActionListener(new JAXBPictureReader()));
         openMenu.add(jaxbMenuItem);
         return openMenu;
     }

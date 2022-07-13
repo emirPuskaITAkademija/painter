@@ -17,7 +17,7 @@ public class Shapes {
     @XmlElement(required = true)
     private List<Shape> shape;
 
-    public List<Shape> getShape() {
+    public List<Shape> getShapes() {
         if(shape == null){
             shape = new ArrayList<>();
         }
